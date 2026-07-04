@@ -63,13 +63,19 @@ public class Sol {
             }
         }
 
+        if (secondhigh.getid() == -2)
+            return null;
         return secondhigh;
+
+        //return secondhigh;
     } 
 }
 
 class Footwear {
-    private int footwearid, price;
-    private String footweartype, footwearname;
+    private final int footwearid;
+    private int price;
+    private final String footweartype;
+    private String footwearname;
 
     public Footwear(int id, String name, String type, int price) {
         footwearid = id;
