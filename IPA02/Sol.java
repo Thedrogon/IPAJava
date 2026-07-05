@@ -75,7 +75,7 @@ class Footwear {
     private final int footwearid;
     private int price;
     private final String footweartype;
-    private String footwearname;
+    private final String footwearname;
 
     public Footwear(int id, String name, String type, int price) {
         footwearid = id;
