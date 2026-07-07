@@ -1,0 +1,74 @@
+Create a class Device with the following attributes:
+
+deviceId (int)
+
+deviceName (String)
+
+brand (String)
+
+price (double)
+
+rating (double)
+
+Write getters, setters, and a parameterized constructor in the above class.
+
+Create a class Solution with the main method.
+Implement two static methods in the Solution class:
+
+Method 1: findAveragePriceByBrand
+
+Input: Array of Device objects, and a String representing the brand.
+
+Logic: Calculate the average price of all devices that match the given brand (case-insensitive).
+
+Return: The average price (double). If no devices match the brand, return 0.
+
+Method 2: getDevicesSortedByRatingThenPrice
+
+Input: Array of Device objects, and a String representing the brand.
+
+Logic: Filter the array for devices matching the given brand (case-insensitive). Sort the matched devices first by rating in descending order. If two devices have the same rating, sort them by price in ascending order.
+
+Return: An array of the sorted Device objects. If no devices match the brand, return null.
+
+Main Method Instructions:
+
+Read 4 Device objects from standard input.
+
+Read a String (brand to search for Method 1).
+
+Read a String (brand to search for Method 2).
+
+Call findAveragePriceByBrand. If the returned value is greater than 0, print it. Otherwise, print "No devices found for the given brand".
+
+Call getDevicesSortedByRatingThenPrice. If the returned array is not null, print the deviceName of each device on a new line. Otherwise, print "No devices found".
+
+Input Format Plaintext
+101
+GalaxyS23
+Samsung
+75000.0
+4.8
+102
+iPhone14
+Apple
+65000.0
+4.6
+103
+GalaxyA54
+Samsung
+35000.0
+4.5
+104
+GalaxyM34
+Samsung
+20000.0
+4.5
+Samsung
+Samsung
+
+Expected Output Plaintext
+43333.333333333336
+GalaxyS23
+GalaxyM34
+GalaxyA54

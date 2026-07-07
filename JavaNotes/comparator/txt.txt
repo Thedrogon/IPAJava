@@ -1,0 +1,44 @@
+A Comparator<T> is a Java interface used to define custom sorting logic for objects.
+
+By default, Java knows how to sort primitives (1, 2, 3) or Strings (A, B, C). It does not know how to sort a custom object like Employee or Car. A Comparator tells Java exactly how to evaluate two instances of an object to determine which one should come first.
+
+It relies on a single method: compare(T o1, T o2).
+
+Returns < 0: o1 comes before o2.
+
+Returns 0: o1 and o2 are equal in sorting order.
+
+Returns > 0: o1 comes after o2.
+
+Did Lambdas Replace Them?
+No. Lambdas did not replace the Comparator interface. Lambdas replaced the verbose syntax used to write them.
+
+Comparator is a functional interface (it has exactly one abstract method). Java 8 (released in 2014) introduced lambdas specifically to provide a shorter, cleaner way to implement functional interfaces without writing bulky anonymous inner classes.
+
+The Evolution (Why, Where, and When)
+Here is exactly how the implementation changed. Assume we are sorting a list of Person objects by their age.
+
+Pre-Java 8: Anonymous Inner Classes (Verbose and bulky)
+Before 2014, you had to instantiate the interface directly using an anonymous block.
+
+Java 8+: Lambdas (Short and direct)
+Since Comparator only has one method, Java can infer the types and the method signature. You just provide the logic.
+
+Java
+List<Person> people = getPeople();
+
+// Sorting with lambdas
+people.sort((p1, p2) -> Integer.compare(p1.getAge(), p2.getAge()));
+Java 8+: Comparator Helper Methods (Modern standard)
+Java 8 also added static helper methods to the Comparator interface itself, combining lambdas and method references to make the code even shorter. This is the current best practice.
+
+Java
+List<Person> people = getPeople();
+
+// Sorting using method references and Comparator.comparing
+people.sort(Comparator.comparing(Person::getAge));
+
+// Chaining comparators (e.g., sort by age, then by name)
+people.sort(Comparator.comparing(Person::getAge)
+                      .thenComparing(Person::getName));
+Summary: The Comparator engine still drives the sorting logic under the hood in Collections and Streams. Lambdas just stripped away the boilerplate code required to use it.
